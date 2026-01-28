@@ -1,14 +1,29 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-import Dashboard from './components/Dashboard';
-import NutritionView from './components/NutritionView';
-import TrainingView from './components/TrainingView';
-import ProfileView from './components/ProfileView';
-import CalendarView from './components/CalendarView';
-import StatsView from './components/StatsView';
-import OnboardingWizard from './components/OnboardingWizard';
-import ToastContainer from './components/ui/ToastContainer';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
+
+// CAMBIO AQUÍ: Añadimos la extensión .tsx para asegurar la resolución en el build
+import Dashboard from './components/Dashboard.tsx';
+import NutritionView from './components/NutritionView.tsx';
+import TrainingView from './components/TrainingView.tsx';
+import ProfileView from './components/ProfileView.tsx';
+import CalendarView from './components/CalendarView.tsx';
+import StatsView from './components/StatsView.tsx';
+import OnboardingWizard from './components/OnboardingWizard.tsx';
+import ToastContainer from './components/ui/ToastContainer.tsx';
+
+import { 
+  AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood,
+  FavoriteMeal, MacroSettings, TrainingSession 
+} from './types'; // Las carpetas de tipos suelen resolver bien sin extensión
+
+import { INITIAL_USER } from './constants';
+import { INITIAL_FOOD_DB } from './data/initialFoodDb';
+import { calculateAutoMacros } from './utils/nutrition';
+import { dayStore } from './data/dayStore';
+import { adjustmentService } from './services/adjustmentService';
+import { toast } from './utils/toast';
 import { 
   AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood, 
   FavoriteMeal, MacroSettings, TrainingSession 
