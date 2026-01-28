@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ToastMessage } from '../../types';
-import { toast } from '../../utils/toast';
+import { toast } from './toast';
 
 const ToastContainer: React.FC = () => {
     const [toasts, setToasts] = useState<ToastMessage[]>([]);
