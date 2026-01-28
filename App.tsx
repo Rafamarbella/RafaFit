@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 
-// Importamos desde el mismo nivel porque App.tsx está en la carpeta components
+// 1. ARCHIVOS EN LA MISMA CARPETA (components/)
 import Dashboard from './Dashboard';
 import NutritionView from './NutritionView';
 import TrainingView from './TrainingView';
@@ -9,13 +9,10 @@ import CalendarView from './CalendarView';
 import StatsView from './StatsView';
 import OnboardingWizard from './OnboardingWizard';
 import ToastContainer from './ToastContainer';
+import { AppView, UserProfile } from './types';
 
-import { 
-  AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood,
-  FavoriteMeal, MacroSettings, TrainingSession 
-} from './types';
-
-// Usamos ../ para salir de la carpeta components y encontrar el resto
+// 2. ARCHIVOS FUERA DE LA CARPETA (Raíz del proyecto)
+// He quitado el "../" porque tus capturas sugieren que están en la raíz
 import { INITIAL_USER } from '../constants';
 import { INITIAL_FOOD_DB } from '../data/initialFoodDb';
 import { calculateAutoMacros } from '../utils/nutrition';
@@ -24,12 +21,10 @@ import { adjustmentService } from '../services/adjustmentService';
 import { toast } from '../utils/toast';
 
 const App: React.FC = () => {
-  // --- ESTADOS DE NAVEGACIÓN ---
   const [currentView, setCurrentView] = useState<AppView>(AppView.DASHBOARD);
   const [user, setUser] = useState<UserProfile>(INITIAL_USER);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // --- LÓGICA DE CARGA ---
   useEffect(() => {
     const savedUser = localStorage.getItem('rafafit_user');
     if (savedUser) {
@@ -38,23 +33,15 @@ const App: React.FC = () => {
     setIsLoaded(true);
   }, []);
 
-  // --- RENDERIZADO SEGÚN LA VISTA ---
   const renderView = () => {
     switch (currentView) {
-      case AppView.DASHBOARD:
-        return <Dashboard user={user} />;
-      case AppView.NUTRITION:
-        return <NutritionView user={user} />;
-      case AppView.TRAINING:
-        return <TrainingView user={user} />;
-      case AppView.PROFILE:
-        return <ProfileView user={user} setUser={setUser} />;
-      case AppView.CALENDAR:
-        return <CalendarView />;
-      case AppView.STATS:
-        return <StatsView />;
-      default:
-        return <Dashboard user={user} />;
+      case AppView.DASHBOARD: return <Dashboard user={user} />;
+      case AppView.NUTRITION: return <NutritionView user={user} />;
+      case AppView.TRAINING: return <TrainingView user={user} />;
+      case AppView.PROFILE: return <ProfileView user={user} setUser={setUser} />;
+      case AppView.CALENDAR: return <CalendarView />;
+      case AppView.STATS: return <StatsView />;
+      default: return <Dashboard user={user} />;
     }
   };
 
@@ -66,11 +53,10 @@ const App: React.FC = () => {
         {user.onboardingCompleted ? renderView() : <OnboardingWizard onComplete={(u) => setUser(u)} />}
       </main>
       
-      {/* Navegación básica (ajusta según tus componentes) */}
-      <nav className="fixed bottom-0 w-full bg-white border-t flex justify-around p-2">
-        <button onClick={() => setCurrentView(AppView.DASHBOARD)}>Inicio</button>
-        <button onClick={() => setCurrentView(AppView.NUTRITION)}>Dieta</button>
-        <button onClick={() => setCurrentView(AppView.TRAINING)}>Entreno</button>
+      <nav className="fixed bottom-0 w-full bg-white border-t flex justify-around p-4 shadow-lg">
+        <button className="font-bold text-blue-600" onClick={() => setCurrentView(AppView.DASHBOARD)}>Inicio</button>
+        <button className="font-bold text-blue-600" onClick={() => setCurrentView(AppView.NUTRITION)}>Dieta</button>
+        <button className="font-bold text-blue-600" onClick={() => setCurrentView(AppView.TRAINING)}>Entreno</button>
       </nav>
 
       <ToastContainer />
