@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { dayStore } from '../data/dayStore';
+import { dayStore } from './dayStore';
 import { DaySummary } from '../types';
 
 interface CalendarViewProps {
