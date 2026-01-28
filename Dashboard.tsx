@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { DayData, MacroGoals, MealPhase, WeightEntry, FoodLogItem, MacroSettings } from '../types';
-import ProgressBar from './ui/ProgressBar';
+import ProgressBar from './ProgressBar';
 import NutritionPlanner from './NutritionPlanner';
 
 interface DashboardProps {
