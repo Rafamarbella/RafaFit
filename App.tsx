@@ -1,14 +1,30 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+iimport React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-// Eliminamos "/components/" de la ruta porque los archivos están al mismo nivel
-import Dashboard from './Dashboard.tsx';
-import NutritionView from './NutritionView.tsx';
-import TrainingView from './TrainingView.tsx';
-import ProfileView from './ProfileView.tsx';
-import CalendarView from './CalendarView.tsx';
+// Corregido: Importamos desde el mismo nivel donde reside App.tsx
+import Dashboard from './Dashboard';
+import NutritionView from './NutritionView';
+import TrainingView from './TrainingView';
+import ProfileView from './ProfileView';
+import CalendarView from './CalendarView';
+import StatsView from './StatsView';
+import OnboardingWizard from './OnboardingWizard';
+import ToastContainer from './ToastContainer';
+
+import { 
+  AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood,
+  FavoriteMeal, MacroSettings, TrainingSession 
+} from './types';
+import StatsView from './StatsView';
+import OnboardingWizard from './OnboardingWizard';
+import ToastContainer from './ToastContainer';
+
+import { 
+  AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood,
+  FavoriteMeal, MacroSettings, TrainingSession 
+} from './types';
 import StatsView from './StatsView.tsx';
 import OnboardingWizard from './OnboardingWizard.tsx';
 import ToastContainer from './ToastContainer.tsx';
