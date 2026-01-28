@@ -3,12 +3,20 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-// CAMBIO AQUÍ: Añadimos la extensión .tsx para asegurar la resolución en el build
-import Dashboard from './components/Dashboard.tsx';
-import NutritionView from './components/NutritionView.tsx';
-import TrainingView from './components/TrainingView.tsx';
-import ProfileView from './components/ProfileView.tsx';
-import CalendarView from './components/CalendarView.tsx';
+// Eliminamos "/components/" de la ruta porque los archivos están al mismo nivel
+import Dashboard from './Dashboard.tsx';
+import NutritionView from './NutritionView.tsx';
+import TrainingView from './TrainingView.tsx';
+import ProfileView from './ProfileView.tsx';
+import CalendarView from './CalendarView.tsx';
+import StatsView from './StatsView.tsx';
+import OnboardingWizard from './OnboardingWizard.tsx';
+import ToastContainer from './ToastContainer.tsx';
+
+import { 
+  AppView, UserProfile, DayData, FoodLogItem, MealPhase, MacroGoals, BaseFood,
+  FavoriteMeal, MacroSettings, TrainingSession 
+} from './types';
 import StatsView from './components/StatsView.tsx';
 import OnboardingWizard from './components/OnboardingWizard.tsx';
 import ToastContainer from './components/ui/ToastContainer.tsx';
