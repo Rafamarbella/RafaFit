@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import Layout from './components/Layout';
+
 import Dashboard from './components/Dashboard';
 import NutritionView from './components/NutritionView';
 import TrainingView from './components/TrainingView';
