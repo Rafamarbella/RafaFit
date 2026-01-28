@@ -1,0 +1,7 @@
+{
+  "name": "RafaFit Coach",
+  "description": "Aplicación personal de entrenamiento y nutrición adaptada para Rafa (50 años, lesiones específicas, detox y fuerza).",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
